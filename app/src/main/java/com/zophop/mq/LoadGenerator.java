@@ -16,6 +16,15 @@ public class LoadGenerator {
             _transport = new IronTransport(BuildConfig.IRON_PROJECT_ID, BuildConfig.IRON_TOKEN,
                     BuildConfig.IRON_CLOUD, BuildConfig.IRON_API_VERSION, BuildConfig.IRON_QUEUE_NAME);
         }
+        else{
+            try {
+                _transport = new RabbitTransport(BuildConfig.RABBIT_USERNAME, BuildConfig.RABBIT_PASSWORD,
+                        BuildConfig.RABBIT_VIRTUAL_HOST, BuildConfig.RABBIT_HOST, BuildConfig.RABBIT_PORT,
+                        BuildConfig.RABBIT_EXCHANGE_NAME, BuildConfig.RABBIT_ROUTING_KEY);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 
