@@ -1,5 +1,7 @@
 package com.zophop.mq;
 
+import android.util.Log;
+
 import java.io.IOException;
 
 import io.iron.ironmq.Client;
@@ -12,12 +14,18 @@ public class IronTransport implements Transport {
     private Queue _queue;
 
     public IronTransport(String projectId, String token, Cloud cloud, Integer apiVersion, String queueName) {
-        _client = new Client(projectId, token, cloud, apiVersion);
+        _client = new Client(projectId, token);
         _queue = _client.queue(queueName);
     }
 
     @Override
     public void sendMessage(String message) throws IOException {
-        _queue.push(message);
+        Log.d("IronTransport", "trying message " + message);
+        try {
+            String push = _queue.push(message);
+            Log.d("IronTransport", "message sent: " + push);
+        } catch (Exception e) {
+            Log.e("IronTransport", "exception", e);
+        }
     }
 }
