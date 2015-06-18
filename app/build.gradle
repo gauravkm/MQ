@@ -10,6 +10,13 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "QUEUE_TYPE", "\"IRON\""
+        buildConfigField "String", "IRON_PROJECT_ID", "\"IRON\""
+        buildConfigField "String", "IRON_TOKEN", "\"\""
+        buildConfigField "io.iron.ironmq.Cloud", "IRON_CLOUD", "\"\""
+        buildConfigField "Integer", "IRON_API_VERSION", "1"
+        buildConfigField "String", "IRON_QUEUE_NAME", "\"Test\""
+
     }
     buildTypes {
         release {
