@@ -13,8 +13,8 @@ public class IronTransport implements Transport {
     private Client _client;
     private Queue _queue;
 
-    public IronTransport(String projectId, String token, Cloud cloud, Integer apiVersion, String queueName) {
-        _client = new Client(projectId, token);
+    public IronTransport(String projectId, String token, String scheme, String host, int port, Integer apiVersion, String queueName) {
+        _client = new Client(projectId, token, new Cloud(scheme, host, port), apiVersion);
         _queue = _client.queue(queueName);
     }
 
