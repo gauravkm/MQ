@@ -11,20 +11,20 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField "String", "QUEUE_TYPE", "\"IRON\""
-        buildConfigField "String", "IRON_PROJECT_ID", "\"IRON\""
-        buildConfigField "String", "IRON_TOKEN", "\"\""
+        buildConfigField "String", "IRON_PROJECT_ID", "\"5582a19f5c5f2d0006000026\""
+        buildConfigField "String", "IRON_TOKEN", "\"qEWaXdu_CNxu8GeP953gsKt0yRo\""
         buildConfigField "io.iron.ironmq.Cloud", "IRON_CLOUD", "null"
         buildConfigField "Integer", "IRON_API_VERSION", "1"
-        buildConfigField "String", "IRON_QUEUE_NAME", "\"Test\""
+        buildConfigField "String", "IRON_QUEUE_NAME", "\"queue1\""
 
 
-        buildConfigField "String", "RABBIT_USERNAME", "\"Test\""
-        buildConfigField "String", "RABBIT_PASSWORD", "\"Test\""
-        buildConfigField "String", "RABBIT_VIRTUAL_HOST", "\"Test\""
-        buildConfigField "String", "RABBIT_HOST", "\"Test\""
+        buildConfigField "String", "RABBIT_USERNAME", "\"ooduzhuy\""
+        buildConfigField "String", "RABBIT_PASSWORD", "\"K-YYchxMQBAQqi8h7JlBcmMyusyYQJrE\""
+        buildConfigField "String", "RABBIT_VIRTUAL_HOST", "\"ooduzhuy\""
+        buildConfigField "String", "RABBIT_HOST", "\"owl.rmq.cloudamqp.com\""
         buildConfigField "Integer", "RABBIT_PORT", "443"
-        buildConfigField "String", "RABBIT_EXCHANGE_NAME", "\"Test\""
-        buildConfigField "String", "RABBIT_ROUTING_KEY", "\"Test\""
+        buildConfigField "String", "RABBIT_EXCHANGE_NAME", "\"exchange\""
+        buildConfigField "String", "RABBIT_ROUTING_KEY", "\"routing\""
     }
     buildTypes {
         release {

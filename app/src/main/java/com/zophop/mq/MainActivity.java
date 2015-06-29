@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.concurrent.Executors;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,8 +16,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Log.d("MainActivity", "generating load now");
-        LoadGenerator loadGenerator = new LoadGenerator();
-        loadGenerator.generateLoad();
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                LoadGenerator loadGenerator = new LoadGenerator();
+                loadGenerator.generateLoad();
+            }
+        });
     }
 
     @Override

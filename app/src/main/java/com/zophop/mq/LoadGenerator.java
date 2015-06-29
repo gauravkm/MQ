@@ -3,6 +3,9 @@ package com.zophop.mq;
 import android.util.Log;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -20,9 +23,15 @@ public class LoadGenerator {
         } else {
             try {
                 _transport = new RabbitTransport(BuildConfig.RABBIT_USERNAME, BuildConfig.RABBIT_PASSWORD,
-                        BuildConfig.RABBIT_VIRTUAL_HOST, BuildConfig.RABBIT_HOST, BuildConfig.RABBIT_PORT,
-                        BuildConfig.RABBIT_EXCHANGE_NAME, BuildConfig.RABBIT_ROUTING_KEY);
+                        BuildConfig.RABBIT_VIRTUAL_HOST, BuildConfig.RABBIT_HOST, BuildConfig.RABBIT_PORT
+                );
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (KeyManagementException e) {
                 e.printStackTrace();
             }
         }
@@ -45,6 +54,6 @@ public class LoadGenerator {
                     Log.e("LoadGenerator", "failure", e);
                 }
             }
-        }, 0, 5, TimeUnit.SECONDS);
+        }, 0, 10, TimeUnit.SECONDS);
     }
 }
